@@ -7,7 +7,7 @@ import { faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-sv
 library.add(faFacebookF, faLinkedinIn, faGithub)
 const Footer = () => {
     return (
-        <div className='w-100'>
+        <div className='container'>
             <div className='row'>
                 <div className='col-md-4'>
                     <h2>name</h2>
