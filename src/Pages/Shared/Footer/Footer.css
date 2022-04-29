@@ -1,0 +1,14 @@
+.socialIcons a {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
+.about:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.socialIcons {
+    text-align: center;
+    margin-top: 20px;
+}
