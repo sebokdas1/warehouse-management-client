@@ -3,7 +3,9 @@ import './GymHelp.css'
 
 const GymHelp = () => {
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid gymHelpContainer'>
+            <h1>FIT WITH GYM EMS PERSONAL FITNESS TRAINING</h1>
+            <h2>WILL HELP YOU WITH</h2>
             <div className='row helpBody'>
                 <div className='col-6 col-md-2'>
                     <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_01.png" alt="" />

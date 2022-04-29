@@ -1,6 +1,17 @@
+.footer-container {
+    background: linear-gradient(180deg, #684efb .01%, #7a2cf0bd 100.01%);
+    color: white;
+    padding: 20px 0;
+}
+
 .socialIcons a {
-    font-size: 18px;
+    font-size: 24px;
     margin-right: 15px;
+    color: wheat;
+}
+
+.socialIcons a:hover {
+    color: rgb(255, 135, 141);
 }
 
 .about:hover {
@@ -11,4 +22,14 @@
 .socialIcons {
     text-align: center;
     margin-top: 20px;
+}
+
+.siteName {
+    color: white;
+    text-decoration: none;
+    font-size: 36px;
+}
+
+.siteName:hover {
+    color: azure;
 }

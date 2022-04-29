@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.gymHelpContainer {
+    background-color: #b3d4fcbe;
+    padding-top: 10px;
+}
+
+.gymHelpContainer h1,
+.gymHelpContainer h2 {
+    /* font-size: 35px; */
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    font-weight: 700;
+}
+
+.gymHelpContainer h2 {
+    color: #27AE60;
+}
+
 .helpBody h5 {
     font-size: 18px;
     font-weight: 700;
