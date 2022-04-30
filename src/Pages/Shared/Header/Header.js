@@ -6,9 +6,11 @@ import './Header.css'
 const Header = () => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" className='navBackground' variant="light">
+            <Navbar collapseOnSelect expand="lg" className='navBackground' sticky='top' variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to="/home"><img width="150px" height="70px" src="https://i.ibb.co/dDJBdVS/istockphoto-1193403698-612x612-removebg-preview.png" alt="" /></Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/home">
+                        <span>NUTRIO</span>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

@@ -1,8 +1,9 @@
 .footer-container {
-    background: linear-gradient(180deg, #684efb .01%, #7a2cf0bd 100.01%);
+    background: linear-gradient(180deg, #000 .01%, #2256ff79 100.01%);
     color: white;
     padding: 20px 0;
 }
+
 
 .socialIcons a {
     font-size: 24px;
