@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+.title {
+    font-family: 'Roboto Slab', serif;
+}
+
+.descriptions {
+    line-height: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.product-details {
+    line-height: 10px;
+}
+
+.product-details p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.update-btn {
+    width: 100%;
+    color: #fff;
+    border: 2px solid #71bd44;
+    background-color: #71bd44;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+.update-btn:hover {
+
+    color: #71bd44;
+    background-color: #fff;
+}

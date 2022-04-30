@@ -1,4 +1,5 @@
 import React from 'react';
+import Equipments from './Equipments/Equipments';
 import GymHelp from './GymHelp';
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
 
 
 
-
+            <Equipments />
 
             <GymHelp />
 
