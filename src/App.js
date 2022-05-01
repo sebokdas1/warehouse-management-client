@@ -5,6 +5,7 @@ import Home from "./Pages/Home/Home";
 import Header from "./Pages/Shared/Header/Header";
 import PageNotFound from "./Pages/Shared/PageNotFound/PageNotFound";
 import Equipments from './Pages/Home/Equipments/Equipments';
+import ProductInfo from './Pages/ProductInfo/ProductInfo';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/equipments" element={<Equipments />}></Route>
+        <Route path='/product/:productId' element={<ProductInfo />}></Route>
+
+
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
 
