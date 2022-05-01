@@ -4,7 +4,9 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import './LogIn.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
-import { async } from '@firebase/util';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
     const [
@@ -16,10 +18,13 @@ const LogIn = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     let errorMessage;
+
+
     const navigate = useNavigate();
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const location = useLocation();
+
     let from = location.state?.from?.pathname || "/";
 
     const handleLogIn = e => {
@@ -32,8 +37,15 @@ const LogIn = () => {
 
     const resetPassword = async () => {
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-        alert('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('reset email Sent');
+        } else {
+            toast('please enter your email address')
+        }
+    }
+    if (loading || sending) {
+        return <LoadingSpinner />
     }
 
     if (error) {
@@ -68,10 +80,11 @@ const LogIn = () => {
                 <label htmlFor="password">Password</label>
                 <input ref={passwordRef} type="password" id="password" name="password" placeholder="Enter 6 character or more" required />
                 {errorMessage}
-                <p>Forget Password? <Link to="/register" onClick={resetPassword}> reset password</Link></p>
+                <p>Forget Password? <span className='reset-link' onClick={resetPassword}> reset password</span></p>
                 <input type="submit" value="Login" />
             </form>
             <SocialMediaLogin />
+            <ToastContainer />
         </div>
     );
 };

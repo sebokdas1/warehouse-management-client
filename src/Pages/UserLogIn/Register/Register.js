@@ -4,7 +4,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-fireb
 import './Register.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
-import { async } from '@firebase/util';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 const Register = () => {
     const [accept, setAccept] = useState(false);
@@ -20,6 +20,10 @@ const Register = () => {
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
+
+    if (loading || updating) {
+        return <LoadingSpinner />
+    }
 
     const handleRegister = async (e) => {
         e.preventDefault();

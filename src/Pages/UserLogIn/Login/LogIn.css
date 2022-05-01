@@ -45,6 +45,15 @@ input[type=submit] {
     cursor: pointer;
 }
 
+.reset-link {
+    color: #2F80ED;
+    cursor: pointer;
+}
+
+.reset-link:hover {
+    text-decoration: underline;
+}
+
 input[type=submit]:hover {
     background-color: #2F80ED;
 }

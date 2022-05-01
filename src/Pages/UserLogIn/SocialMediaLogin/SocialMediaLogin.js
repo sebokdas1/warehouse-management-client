@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import './SocialMediaLogin.css'
 
 const SocialMediaLogin = () => {
@@ -10,6 +11,10 @@ const SocialMediaLogin = () => {
     const [signInWithFacebook, user1, loading1, error1] = useSignInWithFacebook(auth);
 
     let errorMessage;
+    if (loading || loading1) {
+        return <LoadingSpinner />
+    }
+
     if (error || error1) {
         if (error?.message || error1?.message === "Firebase: Error (auth/popup-closed-by-user).") {
             errorMessage = <div>
