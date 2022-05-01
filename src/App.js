@@ -6,6 +6,8 @@ import Header from "./Pages/Shared/Header/Header";
 import PageNotFound from "./Pages/Shared/PageNotFound/PageNotFound";
 import Equipments from './Pages/Home/Equipments/Equipments';
 import ProductInfo from './Pages/ProductInfo/ProductInfo';
+import LogIn from './Pages/UserLogIn/Login/LogIn';
+import Register from './Pages/UserLogIn/Register/Register';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/equipments" element={<Equipments />}></Route>
         <Route path='/product/:productId' element={<ProductInfo />}></Route>
+        <Route path='/login' element={<LogIn />}></Route>
+        <Route path='/register' element={<Register />}></Route>
 
 
         <Route path="*" element={<PageNotFound />}></Route>

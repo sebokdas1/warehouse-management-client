@@ -8,7 +8,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" className='navBackground' sticky='top' variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to="/home">
+                    <Navbar.Brand as={Link} to="/">
                         <span>NUTRIO</span>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -20,8 +20,8 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                            <Nav.Link eventKey={2} as={Link} to="/login">
+                                login
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
