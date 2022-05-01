@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Register.css';
@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 
 const Register = () => {
+    const [accept, setAccept] = useState(false);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -20,11 +21,11 @@ const Register = () => {
 
     const handleRegister = e => {
         e.preventDefault();
-        const name = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-
-        createUserWithEmailAndPassword(email, password);
+        if (accept) {
+            createUserWithEmailAndPassword(email, password);
+        }
     }
 
     if (user) {
@@ -46,7 +47,11 @@ const Register = () => {
                 <label htmlFor="password">Password</label>
                 <input ref={passwordRef} type="password" id="password" name="password" placeholder="Enter 6 character or more" required />
 
-                <input type="submit" value="Register" />
+                <input onClick={() => setAccept(!accept)} type="checkbox" name="terms" id="terms" />
+                <label className={`ps-2 ${accept ? '' : 'text-danger'}`} htmlFor="terms">Accept Nutrio <span>Terms and Condition</span></label>
+
+
+                <input disabled={!accept} type="submit" value="Register" />
             </form>
             <SocialMediaLogin />
         </div>

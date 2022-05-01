@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
+import { async } from '@firebase/util';
 
 const LogIn = () => {
     const [
@@ -12,7 +13,9 @@ const LogIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
+    let errorMessage;
     const navigate = useNavigate();
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -26,6 +29,29 @@ const LogIn = () => {
 
         signInWithEmailAndPassword(email, password);
     }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+    }
+
+    if (error) {
+        if (error?.message === "Firebase: Error (auth/user-not-found).") {
+            errorMessage = <p className='text-danger text-center'>User not found Please Register</p>
+
+        }
+        if (error?.message === "Firebase: Error (auth/wrong-password).") {
+            errorMessage = <p className='text-danger text-center'>wrong password! Please enter valid password</p>
+
+        }
+
+        else {
+            errorMessage = <p className='text-danger text-center'>Error: {error?.message}</p>
+
+        }
+    }
+
     if (user) {
         navigate(from, { replace: true });
     }
@@ -41,7 +67,8 @@ const LogIn = () => {
 
                 <label htmlFor="password">Password</label>
                 <input ref={passwordRef} type="password" id="password" name="password" placeholder="Enter 6 character or more" required />
-
+                {errorMessage}
+                <p>Forget Password? <Link to="/register" onClick={resetPassword}> reset password</Link></p>
                 <input type="submit" value="Login" />
             </form>
             <SocialMediaLogin />
