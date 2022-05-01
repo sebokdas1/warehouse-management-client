@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css';
 import auth from '../../../firebase.init';
@@ -15,6 +15,8 @@ const LogIn = () => {
     const navigate = useNavigate();
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const handleLogIn = e => {
         e.preventDefault();
@@ -24,7 +26,7 @@ const LogIn = () => {
         signInWithEmailAndPassword(email, password);
     }
     if (user) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
     return (
         <div className='login-container mx-auto mt-5 mb-5'>
