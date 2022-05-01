@@ -1,8 +1,18 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css';
+import auth from '../../../firebase.init';
 
 const LogIn = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
     const emailRef = useRef('');
     const passwordRef = useRef('');
 
@@ -10,7 +20,11 @@ const LogIn = () => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password)
+
+        signInWithEmailAndPassword(email, password);
+    }
+    if (user) {
+        navigate('/');
     }
     return (
         <div className='login-container mx-auto mt-5 mb-5'>
