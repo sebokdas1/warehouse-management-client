@@ -1,0 +1,63 @@
+.social-div {
+    margin-top: 5px;
+
+}
+
+.media-empty-div {
+    height: 1px;
+    background-color: black;
+    font-weight: 700;
+}
+
+.socialSignbtn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.googleSignBTN {
+    border: 1px solid orange;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.facebookSignBTN {
+    border: 1px solid greenyellow;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.socialSignbtn:hover {
+    border: 1px solid black;
+}
+
+.google-logo,
+.facebook-logo {
+    height: 30px;
+}
+
+
+.google {
+    font-size: 18px;
+    color: orangered;
+}
+
+.facebook {
+    font-size: 18px;
+    color: blue;
+}
+
+@media only screen and (max-width: 576px) {
+    .social-div {
+        margin-top: 0px;
+    }
+
+    .socialSignbtn {
+        margin-top: 5px;
+    }
+
+    .icon-btn {
+        text-align: center;
+    }
+}

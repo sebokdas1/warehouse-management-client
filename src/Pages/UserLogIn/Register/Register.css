@@ -1,8 +1,10 @@
-.login-container {
+.register-container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
     width: 50%;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .register {
@@ -61,7 +63,10 @@ input[type=submit]:hover {
 }
 
 @media only screen and (max-width:576px) {
-    .login-container {
+
+    .register-container {
         width: fit-content;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }

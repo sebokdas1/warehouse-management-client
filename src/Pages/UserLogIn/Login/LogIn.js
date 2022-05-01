@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css';
 import auth from '../../../firebase.init';
+import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 
 const LogIn = () => {
     const [
@@ -29,7 +30,7 @@ const LogIn = () => {
         navigate(from, { replace: true });
     }
     return (
-        <div className='login-container mx-auto mt-5 mb-5'>
+        <div className='login-container mx-auto'>
             <form onSubmit={handleLogIn}>
                 <h2 className='text-center'>Please login</h2>
 
@@ -43,6 +44,7 @@ const LogIn = () => {
 
                 <input type="submit" value="Login" />
             </form>
+            <SocialMediaLogin />
         </div>
     );
 };
