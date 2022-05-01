@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './Register.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
+import { async } from '@firebase/util';
 
 const Register = () => {
     const [accept, setAccept] = useState(false);
@@ -12,24 +13,28 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
 
-    const handleRegister = e => {
+    const handleRegister = async (e) => {
         e.preventDefault();
+        const displayName = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        if (accept) {
-            createUserWithEmailAndPassword(email, password);
-        }
+
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName });
+        alert('Updated profile');
+        navigate('/');
     }
 
     if (user) {
-        navigate('/');
+        console.log(user)
     }
     return (
         <div className='register-container mx-auto'>
