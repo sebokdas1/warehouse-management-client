@@ -7,6 +7,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 library.add(faFacebookF, faLinkedinIn, faGithub)
 const Footer = () => {
+    const today = new Date();
+    const year = today.getFullYear();
     return (
         <div className='footer-container'>
             <div className='container'>
@@ -34,7 +36,7 @@ const Footer = () => {
                         <img className='w-100 mx-auto mt-2' src="https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png" alt="" />
                     </div>
                 </div>
-                <p className='text-center'><small>copyright &copy; 2022</small></p>
+                <p className='text-center'><small>copyright &copy; {year}</small></p>
             </div>
         </div>
     );
