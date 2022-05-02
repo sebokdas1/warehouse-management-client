@@ -1,0 +1,32 @@
+.verification-container {
+    width: 50%;
+    margin: 25vh auto;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.verification-container h5 {
+    border-bottom: 1px solid gainsboro;
+}
+
+.link-paragraph {
+    color: blue;
+
+}
+
+.verify-link {
+    cursor: pointer;
+}
+
+.verify-link:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 576px) {
+    .verification-container {
+        width: 85%;
+        margin: 15px auto;
+        border: 1px solid gray;
+        padding: 10px;
+    }
+}
