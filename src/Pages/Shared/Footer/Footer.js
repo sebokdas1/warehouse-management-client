@@ -36,7 +36,7 @@ const Footer = () => {
                         <img className='w-100 mx-auto mt-2' src="https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png" alt="" />
                     </div>
                 </div>
-                <p className='text-center'><small>copyright &copy; {year}</small></p>
+                <p className='text-center'><small>copyright &copy; {year} NUTRIO WAREHOUSE</small></p>
             </div>
         </div>
     );

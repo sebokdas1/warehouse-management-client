@@ -7,6 +7,7 @@ import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Title from '../../Shared/Title/Title';
 
 const LogIn = () => {
     const [
@@ -69,6 +70,7 @@ const LogIn = () => {
     }
     return (
         <div className='login-container mx-auto'>
+            <Title title="login"></Title>
             <form onSubmit={handleLogIn}>
                 <h2 className='text-center'>Please login</h2>
 

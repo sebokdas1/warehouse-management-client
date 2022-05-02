@@ -26,13 +26,19 @@ const Header = () => {
                             <Nav.Link as={Link} to="/equipments">Equipments</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+
                             {
                                 user
                                     ?
                                     <>
                                         <Nav.Link  >
-                                            items
+                                            Manage Items
+                                        </Nav.Link>
+                                        <Nav.Link  >
+                                            Add Item
+                                        </Nav.Link>
+                                        <Nav.Link  >
+                                            My Items
                                         </Nav.Link>
                                         <Nav.Link eventKey={3} onClick={handleSignOut}>
                                             Sign out

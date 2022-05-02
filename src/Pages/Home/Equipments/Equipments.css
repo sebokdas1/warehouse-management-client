@@ -7,7 +7,13 @@
     font-weight: 700;
 }
 
+.show-more {
+    text-decoration: none;
+}
 
+.show-more:hover .arrow-icon {
+    margin-left: 5px;
+}
 
 .empty {
     width: 30px;

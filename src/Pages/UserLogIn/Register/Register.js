@@ -5,6 +5,8 @@ import './Register.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+import { toast } from 'react-toastify';
+import Title from '../../Shared/Title/Title';
 
 const Register = () => {
     const [accept, setAccept] = useState(false);
@@ -32,16 +34,19 @@ const Register = () => {
         const password = passwordRef.current.value;
 
         await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName });
-        alert('Updated profile');
-        navigate('/');
+
+        // await updateProfile({ displayName });
+        // alert('Updated profile');
+
     }
 
     if (user) {
-        console.log(user)
+        navigate('/');
+
     }
     return (
         <div className='register-container mx-auto'>
+            <Title title="Register"></Title>
             <form onSubmit={handleRegister}>
                 <h2 className='text-center'>Please Register</h2>
 
