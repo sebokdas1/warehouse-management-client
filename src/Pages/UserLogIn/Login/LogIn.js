@@ -54,7 +54,7 @@ const LogIn = () => {
             errorMessage = <p className='text-danger text-center'>User not found Please Register</p>
 
         }
-        if (error?.message === "Firebase: Error (auth/wrong-password).") {
+        else if (error?.message === "Firebase: Error (auth/wrong-password).") {
             errorMessage = <p className='text-danger text-center'>wrong password! Please enter valid password</p>
 
         }

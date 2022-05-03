@@ -18,7 +18,8 @@ const RequireAuth = ({ children }) => {
     if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
-    if (!user.emailVerified) {
+
+    if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
         return <div className='verification-container'>
             <h5>Verify Your Email Address</h5>
             <p>Before proceeding, please check your email for a verification link. If you did not receive the email,</p>
@@ -27,7 +28,7 @@ const RequireAuth = ({ children }) => {
                     className='verify-link'
                     onClick={async () => {
                         await sendEmailVerification();
-                        toast('Verification email send');
+                        toast('Verification Mail Send');
                     }}
                 >click here to request another.</span>
             </p>

@@ -9,6 +9,7 @@ import ProductInfo from './Pages/ProductInfo/ProductInfo';
 import LogIn from './Pages/UserLogIn/Login/LogIn';
 import Register from './Pages/UserLogIn/Register/Register';
 import RequireAuth from './Pages/UserLogIn/RequireAuth/RequireAuth';
+import AddProduct from './Pages/Home/AddProduct/AddProduct';
 
 function App() {
   return (
@@ -23,6 +24,11 @@ function App() {
         <Route path='/product/:productId' element={
           <RequireAuth>
             <ProductInfo />
+          </RequireAuth>
+        }></Route>
+        <Route path='/add-product' element={
+          <RequireAuth>
+            <AddProduct />
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<LogIn />}></Route>
