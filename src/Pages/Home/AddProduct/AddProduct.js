@@ -6,8 +6,8 @@ const AddProduct = () => {
     const descriptionRef = useRef("");
     const imgRef = useRef("");
     const supplierRef = useRef("");
-    const stockRef = useRef(0);
-    const priceRef = useRef(0);
+    const stockRef = useRef(1);
+    const priceRef = useRef(1);
 
     const handleAdd = e => {
         //stop page reload when form submitted.
