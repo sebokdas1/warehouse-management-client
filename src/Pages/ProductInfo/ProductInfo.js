@@ -12,7 +12,7 @@ const ProductInfo = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/item/${productId}`;
+        const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
@@ -22,7 +22,7 @@ const ProductInfo = () => {
         const previousItemQuantity = parseInt(item.quantity);
         const quantity = previousItemQuantity - 1;
         const newDeleverItem = { quantity };
-        const url = `http://localhost:5000/item/${productId}`;
+        const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -48,7 +48,7 @@ const ProductInfo = () => {
         const newitem = { quantity }
 
         //post input data to database
-        const url = `http://localhost:5000/item/${productId}`;
+        const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

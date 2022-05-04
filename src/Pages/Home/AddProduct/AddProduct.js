@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import './AddProduct.css'
 
 const AddProduct = () => {
@@ -24,7 +25,7 @@ const AddProduct = () => {
         const item = { img, name, description, price, supplier, quantity }
 
         //post input data to database
-        const url = `http://localhost:5000/item`;
+        const url = `https://nutrio-warehouse.herokuapp.com/item`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -34,6 +35,7 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
+        toast('Product added successfully')
         e.target.reset()
     }
 
@@ -96,8 +98,8 @@ const AddProduct = () => {
                         <input type="submit" value="Add Item" />
                     </div>
                 </form>
-
             </div>
+            <ToastContainer />
         </div>
     );
 };

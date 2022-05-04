@@ -2,25 +2,31 @@ import React from 'react';
 import useEquipments from '../Shared/useEquipments/useEquipments';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
-// import ManageItem from './ManageItem/ManageItem';
 import { Link } from 'react-router-dom';
 import './ManageItems.css'
+
 
 const ManageItems = () => {
     const [products, setProducts] = useEquipments([]);
 
     const deleteItem = id => {
-        const url = `http://localhost:5000/item/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                const remaining = products.filter(product => product._id !== id);
-                setProducts(remaining)
-            });
+        const Confirm = window.confirm('Are you sure, you want to delete?');
+        if (Confirm) {
+            const url = `https://nutrio-warehouse.herokuapp.com/item/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = products.filter(product => product._id !== id);
+                    setProducts(remaining)
+                });
+        }
+
     }
+
+
 
     return (
         <div className='manage-container'>
@@ -38,7 +44,7 @@ const ManageItems = () => {
                     </thead>
 
                     {
-                        products.map(product => <tbody>
+                        products.map(product => <tbody key={product._id}>
                             <tr>
 
                                 <td><img width="60vh" src={product.img} alt="" /></td>
