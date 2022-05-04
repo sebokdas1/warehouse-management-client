@@ -1,11 +1,26 @@
 import React from 'react';
 import useEquipments from '../Shared/useEquipments/useEquipments';
-import ManageItem from './ManageItem/ManageItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+// import ManageItem from './ManageItem/ManageItem';
 import { Link } from 'react-router-dom';
 import './ManageItems.css'
 
 const ManageItems = () => {
-    const [products] = useEquipments([]);
+    const [products, setProducts] = useEquipments([]);
+
+    const deleteItem = id => {
+        const url = `http://localhost:5000/item/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                const remaining = products.filter(product => product._id !== id);
+                setProducts(remaining)
+            });
+    }
 
     return (
         <div className='manage-container'>
@@ -23,7 +38,15 @@ const ManageItems = () => {
                     </thead>
 
                     {
-                        products.map(product => <ManageItem key={product._id} product={product} />)
+                        products.map(product => <tbody>
+                            <tr>
+
+                                <td><img width="60vh" src={product.img} alt="" /></td>
+                                <td>{product.name.slice(0, 15)}</td>
+                                <td>{product.price}</td>
+                                <td><FontAwesomeIcon onClick={() => deleteItem(product._id)} className='dlt-icon' icon={faTrashCan} /></td>
+                            </tr>
+                        </tbody>)
 
                     }
 

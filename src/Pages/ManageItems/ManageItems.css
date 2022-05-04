@@ -22,6 +22,12 @@
     color: black;
 }
 
+.dlt-icon {
+    color: red;
+    cursor: pointer;
+    font-size: 24px;
+}
+
 @media only screen and (max-width: 576px) {
     .manage-container {
         margin: 0;
