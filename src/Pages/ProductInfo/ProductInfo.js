@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 // import LoadingSpinner from '../Shared/LoadingSpinner/LoadingSpinner';
 import Title from '../Shared/Title/Title';
 import './ProductInfo.css';
@@ -63,6 +64,7 @@ const ProductInfo = () => {
     // < LoadingSpinner />
     return (
         <div className='container mt-2 info-main-div'>
+            <p className='manageItem'><Link to="/manage-item">Manage Items</Link></p>
             <h2 className='text-center'>Product Details</h2>
             <div className='empty-extra mx-auto'></div>
 
@@ -81,7 +83,7 @@ const ProductInfo = () => {
             </div>
             <div className='delevered-restock'>
                 <div>
-                    <button onClick={() => deleverItem()} className='delevered-btn'>Deleverd</button>
+                    <button onClick={() => deleverItem()} className='delevered-btn'>Delivered</button>
                 </div>
                 <div className='restock-field'>
                     <form onSubmit={addNewItem}>
@@ -92,6 +94,7 @@ const ProductInfo = () => {
                     </form>
                 </div>
             </div>
+
             <ToastContainer />
         </div>
     );

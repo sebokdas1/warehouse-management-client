@@ -1,0 +1,33 @@
+.manage-container {
+    margin: 20px 80px;
+}
+
+.add-newBTN {
+    text-align: end;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.add-newBTN a {
+    padding: 2px 5px;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.add-newBTN a:hover {
+    background-color: white;
+    color: black;
+}
+
+@media only screen and (max-width: 576px) {
+    .manage-container {
+        margin: 0;
+    }
+
+    .add-newBTN {
+        margin-right: 5px;
+    }
+}

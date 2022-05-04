@@ -5,6 +5,25 @@
 
 }
 
+.manageItem {
+    text-align: end;
+    margin-top: 10px;
+}
+
+.manageItem a {
+    border: 1px solid grey;
+    background-color: rgba(0, 0, 0, 0.514);
+    border-radius: 4px;
+    padding: 2px 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.manageItem a:hover {
+    background-color: white;
+    color: black;
+}
+
 /* .info-main-div {
     height: 100%;
 } */
@@ -41,7 +60,10 @@
 
 .delevered-btn {
     border: 1px solid lightslategray;
-    background-color: rgba(127, 255, 212, 0.61);
+    background-color: rgb(150, 147, 147);
+    border-radius: 4px;
+    padding: 0 10px;
+    color: white;
 }
 
 .delevered-btn:hover {
@@ -51,14 +73,15 @@
 
 .restock-btn {
     margin-left: 8px;
-    border: 2px solid greenyellow;
-    background-color: rgb(203, 56, 240);
+    border: 1px solid black;
+    background-color: black;
     color: white;
+    border-radius: 3px;
 }
 
 .restock-btn:hover {
-    background-color: rgb(10, 173, 10);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 
