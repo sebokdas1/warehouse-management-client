@@ -1,0 +1,18 @@
+.home-manageLink {
+    text-align: end;
+    ;
+}
+
+.home-manageLink a {
+    text-decoration: none;
+    border: 1px solid gainsboro;
+    padding: 2px 5px;
+    background-color: gainsboro;
+    color: black;
+    border-radius: 2px;
+}
+
+.home-manageLink a:hover {
+    background-color: black;
+    color: white;
+}
