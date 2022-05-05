@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './LogIn.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Title from '../../Shared/Title/Title';
 
@@ -16,10 +15,8 @@ const LogIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     let errorMessage;
-
 
     const navigate = useNavigate();
     const emailRef = useRef('');
@@ -36,16 +33,8 @@ const LogIn = () => {
         signInWithEmailAndPassword(email, password);
     }
 
-    const resetPassword = async () => {
-        const email = emailRef.current.value;
-        if (email) {
-            await sendPasswordResetEmail(email);
-            toast('reset email Sent');
-        } else {
-            toast('please enter your email address')
-        }
-    }
-    if (loading || sending) {
+
+    if (loading) {
         return <LoadingSpinner />
     }
 
@@ -82,11 +71,10 @@ const LogIn = () => {
                 <label htmlFor="password">Password</label>
                 <input ref={passwordRef} type="password" id="password" name="password" placeholder="Enter 6 character or more" required />
                 {errorMessage}
-                <p>Forget Password? <span className='reset-link' onClick={resetPassword}> reset password</span></p>
+                <p className='reset-link' >Forget Password? <Link to="/reset-password" > reset password</Link></p>
                 <input type="submit" value="Login" />
             </form>
             <SocialMediaLogin />
-            <ToastContainer />
         </div>
     );
 };

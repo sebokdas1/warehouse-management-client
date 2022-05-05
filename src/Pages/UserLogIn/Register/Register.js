@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Register.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import Title from '../../Shared/Title/Title';
 
 const Register = () => {
@@ -14,22 +14,22 @@ const Register = () => {
         createUserWithEmailAndPassword,
         user,
         loading,
-        error,
+        // error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+    // const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
 
-    if (loading || updating) {
+    if (loading) {
         return <LoadingSpinner />
     }
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        const displayName = nameRef.current.value;
+        // const displayName = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
@@ -45,6 +45,7 @@ const Register = () => {
 
     }
     return (
+
         <div className='register-container mx-auto'>
             <Title title="Register"></Title>
             <form onSubmit={handleRegister}>
@@ -62,13 +63,14 @@ const Register = () => {
                 <input ref={passwordRef} type="password" id="password" name="password" placeholder="Enter 6 character or more" required />
 
                 <input onClick={() => setAccept(!accept)} type="checkbox" name="terms" id="terms" />
-                <label className={`ps-2 ${accept ? '' : 'text-danger'}`} htmlFor="terms">Accept Nutrio <span>Terms and Condition</span></label>
+                <label className={`ps-2 ${accept ? '' : 'text-danger'}`} htmlFor="terms">Accept Nutrio <span>Terms</span></label>
 
 
                 <input disabled={!accept} type="submit" value="Register" />
             </form>
             <SocialMediaLogin />
         </div>
+
     );
 };
 

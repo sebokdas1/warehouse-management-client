@@ -1,6 +1,6 @@
 .login-container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #ecd3d380;
     padding: 20px;
     width: 50%;
     margin-top: 20px;
@@ -45,12 +45,13 @@ input[type=submit] {
     cursor: pointer;
 }
 
-.reset-link {
+.reset-link a {
+    text-decoration: none;
     color: #2F80ED;
     cursor: pointer;
 }
 
-.reset-link:hover {
+.reset-link a:hover {
     text-decoration: underline;
 }
 

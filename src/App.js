@@ -1,5 +1,4 @@
 import Footer from './Pages/Shared/Footer/Footer';
-
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Header from "./Pages/Shared/Header/Header";
@@ -11,6 +10,8 @@ import Register from './Pages/UserLogIn/Register/Register';
 import RequireAuth from './Pages/UserLogIn/RequireAuth/RequireAuth';
 import AddProduct from './Pages/Home/AddProduct/AddProduct';
 import ManageItems from './Pages/ManageItems/ManageItems';
+import Reset from './Pages/UserLogIn/Reset/Reset';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
         <Route path="/equipments" element={<Equipments />}></Route>
+        <Route path="/blog" element={<Blog />}></Route>
         <Route path='/product/:productId' element={
           <RequireAuth>
             <ProductInfo />
@@ -39,6 +41,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<LogIn />}></Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/reset-password' element={<Reset />}></Route>
 
 
         <Route path="*" element={<PageNotFound />}></Route>
