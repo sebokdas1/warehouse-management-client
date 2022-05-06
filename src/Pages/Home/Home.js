@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import About from '../About/About';
 import Title from '../Shared/Title/Title';
 import WhyChoose from '../WhyChoose/WhyChoose';
 import Banner from './Banner';
@@ -12,6 +13,7 @@ const Home = () => {
         <div>
             <Title title="Home"></Title>
             <Banner />
+            <About />
             <HomeProducts />
             <p className='container home-manageLink'><Link to="/manage-item">Manage Items</Link></p>
             <WhyChoose />
