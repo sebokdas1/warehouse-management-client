@@ -10,7 +10,7 @@ const Equipment = ({ product }) => {
     }
     return (
         <div className='col'>
-            <div className="card">
+            <div className="card equipment-cont">
                 <img src={img} className="mx-auto card-img-top" alt="" />
                 <div className="card-body">
                     <h5 className="card-title title">{name.slice(0, 25)}</h5>

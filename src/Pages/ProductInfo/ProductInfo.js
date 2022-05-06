@@ -10,22 +10,30 @@ const ProductInfo = () => {
     const quantityRef = useRef(1);
     const { productId } = useParams();
     const [item, setItem] = useState({});
-    // const [isReload, setIsReload] = useState(false);
-    // if (isReload) {
-    //     <LoadingSpinner />
-    // }
+
     useEffect(() => {
-        <LoadingSpinner />
         const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
+        <LoadingSpinner />
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data))
-    }, []);
+    }, [item]);
 
     const deleverItem = () => {
+        let quantity;
         const previousItemQuantity = parseInt(item.quantity);
-        const quantity = previousItemQuantity - 1;
+
+        if (previousItemQuantity === 1) {
+            quantity = 'sold out';
+        }
+        else if (item.quantity === 'sold out') {
+            quantity = 'sold out';
+        }
+        else {
+            quantity = previousItemQuantity - 1;
+        }
         const newDeleverItem = { quantity };
+
         const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
         fetch(url, {
             method: 'PUT',
@@ -35,20 +43,24 @@ const ProductInfo = () => {
             body: JSON.stringify(newDeleverItem)
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            });
+            .then(data => console.log(data));
+        setItem(newDeleverItem)
         toast(`${item.name} delivered successfully`);
     }
 
     const addNewItem = e => {
         //stop page reload when form submitted.
         e.preventDefault();
-
-        //sum previous and current quantity
+        let quantity;
         const preQuantity = parseInt(item.quantity);
         const newQuantity = parseInt(quantityRef.current.value);
-        const quantity = preQuantity + newQuantity;
+
+        if (item.quantity === 'sold out') {
+            quantity = parseInt(quantityRef.current.value);
+        }
+        else {
+            quantity = preQuantity + newQuantity;
+        }
 
         //wrap input data to item object.
         const newitem = { quantity }
@@ -64,6 +76,7 @@ const ProductInfo = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data));
+        setItem(newitem)
         toast(`successfully added ${newQuantity} stock quantity`)
         e.target.reset();
     }

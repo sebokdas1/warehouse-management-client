@@ -1,0 +1,38 @@
+.whyC-main {
+    background-image: url(https://landing.wpbingosite.com/prido/assets/img/bg-footer.jpg);
+}
+
+.main-row-container {
+    padding-top: 50px;
+    padding-bottom: 87px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main-row-container div {
+    width: 270px;
+    padding: 10px 5px;
+    background-color: rgba(240, 248, 255, 0.068);
+    border: 1px solid lavenderblush;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.main-row-container h2,
+.main-row-container p {
+    color: aliceblue;
+}
+
+@media only screen and (max-width:576px) {
+    .main-row-container {
+        padding-top: 20px;
+        /* padding-bottom: 87px; */
+        /* display: grid; */
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .main-row-container div {
+        margin-top: 15px;
+        gap: 0;
+    }
+}

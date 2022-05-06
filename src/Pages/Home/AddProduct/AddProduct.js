@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import Title from '../../Shared/Title/Title';
 import './AddProduct.css'
 
 const AddProduct = () => {
@@ -41,6 +42,7 @@ const AddProduct = () => {
 
     return (
         <div className='add-main-container'>
+            <Title title="add item" />
             <h2 className='text-center mt-1'>Add New Product</h2>
             <div className='Add-container'>
                 <form onSubmit={handleAdd}>

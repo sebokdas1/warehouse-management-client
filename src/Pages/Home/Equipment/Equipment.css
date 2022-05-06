@@ -22,6 +22,10 @@
     font-weight: 500;
 }
 
+.equipment-cont img {
+    height: 338px;
+}
+
 .update-btn {
     width: 100%;
     color: #fff;
@@ -37,4 +41,10 @@
 
     color: #000;
     background-color: #fff;
+}
+
+@media only screen and (max-width: 576px) {
+    .equipment-cont img {
+        height: auto;
+    }
 }
