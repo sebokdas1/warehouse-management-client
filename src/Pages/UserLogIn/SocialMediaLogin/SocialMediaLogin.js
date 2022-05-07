@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import './SocialMediaLogin.css'
@@ -9,6 +9,9 @@ const SocialMediaLogin = () => {
     const navigate = useNavigate();
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithFacebook, user1, loading1, error1] = useSignInWithFacebook(auth);
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
 
     let errorMessage;
     if (loading || loading1) {
@@ -29,7 +32,7 @@ const SocialMediaLogin = () => {
     }
 
     if (user || user1) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
     return (
         <div className='social-div'>

@@ -38,8 +38,8 @@ const Header = () => {
                                         <Nav.Link as={Link} to="/add-product" >
                                             Add Item
                                         </Nav.Link>
-                                        <Nav.Link  >
-                                            My Items
+                                        <Nav.Link as={Link} to="/my-item" >
+                                            My Item
                                         </Nav.Link>
                                         <Nav.Link eventKey={3} onClick={handleSignOut}>
                                             Sign out

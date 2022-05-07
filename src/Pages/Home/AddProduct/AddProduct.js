@@ -1,20 +1,27 @@
+import axios from 'axios';
 import React, { useRef } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 import Title from '../../Shared/Title/Title';
 import './AddProduct.css'
 
 const AddProduct = () => {
+    const [user] = useAuthState(auth);
     const nameRef = useRef("");
     const descriptionRef = useRef("");
     const imgRef = useRef("");
     const supplierRef = useRef("");
     const stockRef = useRef(1);
     const priceRef = useRef(1);
-
+    if (user) {
+        console.log(user.email)
+    }
     const handleAdd = e => {
         //stop page reload when form submitted.
         e.preventDefault();
         //get input data from input field
+        const email = user.email;
         const name = nameRef.current.value;
         const description = descriptionRef.current.value;
         const img = imgRef.current.value;
@@ -23,8 +30,13 @@ const AddProduct = () => {
         const price = priceRef.current.value;
 
         //wrap input data to item object.
-        const item = { img, name, description, price, supplier, quantity }
-
+        const item = { email, img, name, description, price, supplier, quantity }
+        const myItem = { email, img, name, description, price, supplier, quantity }
+        //post data to myItem page
+        axios.post('https://nutrio-warehouse.herokuapp.com/myItem', myItem)
+            .then(response => {
+                console.log(response)
+            })
         //post input data to database
         const url = `https://nutrio-warehouse.herokuapp.com/item`;
         fetch(url, {

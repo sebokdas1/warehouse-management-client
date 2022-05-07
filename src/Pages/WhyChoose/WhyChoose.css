@@ -29,10 +29,12 @@
         /* padding-bottom: 87px; */
         /* display: grid; */
         grid-template-columns: repeat(1, 1fr);
+        padding-left: 20px;
     }
 
     .main-row-container div {
         margin-top: 15px;
         gap: 0;
+
     }
 }
