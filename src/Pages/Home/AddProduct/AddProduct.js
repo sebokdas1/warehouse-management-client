@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
@@ -31,12 +31,7 @@ const AddProduct = () => {
 
         //wrap input data to item object.
         const item = { email, img, name, description, price, supplier, quantity }
-        const myItem = { email, img, name, description, price, supplier, quantity }
-        //post data to myItem page
-        axios.post('https://nutrio-warehouse.herokuapp.com/myItem', myItem)
-            .then(response => {
-                console.log(response)
-            })
+
         //post input data to database
         const url = `https://nutrio-warehouse.herokuapp.com/item`;
         fetch(url, {

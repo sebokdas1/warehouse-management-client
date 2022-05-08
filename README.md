@@ -13,3 +13,4 @@ And the logged in user will be able to deliver and  add new products and delete 
 - user can increse item Stock quantity
 - user can Delete items with confirmation
 - register with email and social media account
+- user can delete his added items

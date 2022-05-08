@@ -5,6 +5,7 @@ import useEquipments from '../../Shared/useEquipments/useEquipments';
 import Equipment from '../Equipment/Equipment';
 import { Link } from 'react-router-dom';
 import './HomeProducts.css';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 
 const HomeProducts = () => {
@@ -18,10 +19,14 @@ const HomeProducts = () => {
             </div>
             <div className='row row-cols-1 row-cols-md-3 g-5'>
                 {
-                    products.slice(0, 6).map(product => <Equipment key={product._id}
-                        product={product}
-                    ></Equipment>)
-                }
+                    products ?
+
+
+                        products.slice(0, 6).map(product => <Equipment key={product._id}
+                            product={product}
+                        ></Equipment>)
+                        : <LoadingSpinner />}
+
             </div>
             <Link to="equipments" className='show-more'>Show All <span className='arrow-icon'><FontAwesomeIcon icon={faArrowRightLong} /></span></Link>
         </div>
