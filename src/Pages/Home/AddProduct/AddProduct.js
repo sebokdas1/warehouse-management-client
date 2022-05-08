@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import React, { useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';

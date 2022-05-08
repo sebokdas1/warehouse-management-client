@@ -5,7 +5,6 @@ import './Register.css';
 import auth from '../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
-// import { toast } from 'react-toastify';
 import Title from '../../Shared/Title/Title';
 
 const Register = () => {
@@ -16,7 +15,7 @@ const Register = () => {
         loading,
         // error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    // const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+
 
     const navigate = useNavigate();
     const nameRef = useRef('');
@@ -29,14 +28,10 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        // const displayName = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
         await createUserWithEmailAndPassword(email, password);
-
-        // await updateProfile({ displayName });
-        // alert('Updated profile');
 
     }
 

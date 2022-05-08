@@ -3,7 +3,7 @@ import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import './Reset.css'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
-// import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+
 
 const Reset = () => {
     const emailRef = useRef('');
