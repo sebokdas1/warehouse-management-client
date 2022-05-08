@@ -88,6 +88,7 @@ const ProductInfo = () => {
             <div className='empty-extra mx-auto'></div>
 
             <Title title="Details"></Title>
+            <h5 className='text-center mt-2'>Product id: {item._id}</h5>
             <div className='Sproduct-details'>
                 <img height="280px" width="280px" src={item.img} alt="" />
                 <div className='info-section'>

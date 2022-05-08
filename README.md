@@ -1,6 +1,8 @@
 # Nutrio Warehouse
 
-##### live site [nutrio-warehouse.web.app](https://nutrio-warehouse.web.app)
+#### live site [nutrio-warehouse.web.app](https://nutrio-warehouse.web.app)
+
+#### server side [code](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-sebokdas1)
 
 ## Short description
 This is a simple gym equipment warehouse website.
