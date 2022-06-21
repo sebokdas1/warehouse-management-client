@@ -14,7 +14,9 @@ const RequireAuth = ({ children }) => {
     if (loading || sending) {
         return <LoadingSpinner />
     }
-
+    if (error) {
+        console.log(error?.message)
+    }
     if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
