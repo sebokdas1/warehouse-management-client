@@ -1,15 +1,21 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
-import useEquipments from '../../Shared/useEquipments/useEquipments';
+// import useEquipments from '../../Shared/useEquipments/useEquipments';
 import Equipment from '../Equipment/Equipment';
 import { Link } from 'react-router-dom';
 import './HomeProducts.css';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+import { useQuery } from 'react-query';
 
 
 const HomeProducts = () => {
-    const [products] = useEquipments([]);
+    // const [products] = useEquipments([]);
+    const { data: products, isLoading } = useQuery('item', () => fetch('https://nutrio-warehouse.herokuapp.com/item').then(res => res.json()));
+
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
     return (
         <div className='container equipments-container'>
 
