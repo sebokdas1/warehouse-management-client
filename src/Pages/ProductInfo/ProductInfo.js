@@ -12,7 +12,7 @@ const ProductInfo = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
+        const url = `https://warehouse-management-server-beige.vercel.app/item/${productId}`;
         <LoadingSpinner />
         fetch(url)
             .then(res => res.json())
@@ -34,7 +34,7 @@ const ProductInfo = () => {
         }
         const newDeleverItem = { quantity };
 
-        const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
+        const url = `https://warehouse-management-server-beige.vercel.app/item/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -66,7 +66,7 @@ const ProductInfo = () => {
         const newitem = { quantity }
 
         //post input data to database
-        const url = `https://nutrio-warehouse.herokuapp.com/item/${productId}`;
+        const url = `https://warehouse-management-server-beige.vercel.app/item/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

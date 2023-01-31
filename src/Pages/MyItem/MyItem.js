@@ -12,7 +12,7 @@ const MyItem = () => {
     useEffect(() => {
         const getItems = async () => {
             const email = user.email;
-            const url = `https://nutrio-warehouse.herokuapp.com/myItem?email=${email}`
+            const url = `https://warehouse-management-server-beige.vercel.app/myItem?email=${email}`
             const { data } = await axios.get(url)
             setItems(data)
         }
@@ -22,7 +22,7 @@ const MyItem = () => {
     const deleteItem = id => {
         const Confirm = window.confirm('Are you sure, you want to delete?');
         if (Confirm) {
-            const url = `https://nutrio-warehouse.herokuapp.com/item/${id}`;
+            const url = `https://warehouse-management-server-beige.vercel.app/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

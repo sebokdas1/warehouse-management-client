@@ -6,7 +6,7 @@ const useEquipments = () => {
     const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://nutrio-warehouse.herokuapp.com/item')
+        fetch('https://warehouse-management-server-beige.vercel.app/item')
 
             .then(res => res.json())
             .then(data => {
