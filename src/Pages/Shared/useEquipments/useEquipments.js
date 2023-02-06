@@ -6,7 +6,7 @@ const useEquipments = () => {
     const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://warehouse-management-server-beige.vercel.app/item')
+        fetch('https://warehouse-management-server-llb7.onrender.com/item')
 
             .then(res => res.json())
             .then(data => {

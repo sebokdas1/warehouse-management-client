@@ -32,7 +32,7 @@ const AddProduct = () => {
         const item = { email, img, name, description, price, supplier, quantity }
 
         //post input data to database
-        const url = `https://warehouse-management-server-beige.vercel.app/item`;
+        const url = `https://warehouse-management-server-llb7.onrender.com/item`;
         fetch(url, {
             method: 'POST',
             headers: {

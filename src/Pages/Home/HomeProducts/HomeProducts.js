@@ -11,7 +11,7 @@ import { useQuery } from 'react-query';
 
 const HomeProducts = () => {
     // const [products] = useEquipments([]);
-    const { data: products, isLoading } = useQuery('item', () => fetch('https://warehouse-management-server-beige.vercel.app/item').then(res => res.json()));
+    const { data: products, isLoading } = useQuery('item', () => fetch('https://warehouse-management-server-llb7.onrender.com/item').then(res => res.json()));
 
     if (isLoading) {
         return <LoadingSpinner />

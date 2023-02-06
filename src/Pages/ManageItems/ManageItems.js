@@ -12,7 +12,7 @@ const ManageItems = () => {
     const deleteItem = id => {
         const Confirm = window.confirm('Are you sure, you want to delete?');
         if (Confirm) {
-            const url = `https://warehouse-management-server-beige.vercel.app/item/${id}`;
+            const url = `https://warehouse-management-server-llb7.onrender.com/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
