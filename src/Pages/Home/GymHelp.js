@@ -1,4 +1,10 @@
 import React from 'react';
+import Weight from '../../Assets/wloss.png'
+import Muscles from '../../Assets/muscles.png'
+import Diabetis from '../../Assets/diabetis.png'
+import Blood from '../../Assets/blood.png'
+import Backpain from '../../Assets/backpain.png'
+import Osteo from '../../Assets/osteo.png'
 import './GymHelp.css'
 
 const GymHelp = () => {
@@ -8,27 +14,27 @@ const GymHelp = () => {
             <h2>WILL HELP YOU WITH</h2>
             <div className='row helpBody'>
                 <div className='col-6 col-md-2'>
-                    <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_01.png" alt="" />
+                    <img className='img-fluid' src={Weight} alt="" />
                     <h5>Weight loss</h5>
                 </div>
                 <div className='col-6 col-md-2'>
-                    <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_02.png" alt="" />
+                    <img className='img-fluid' src={Muscles} alt="" />
                     <h5>Build muscles</h5>
                 </div>
                 <div className='col-6 col-md-2'>
-                    <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_03.png" alt="" />
+                    <img className='img-fluid' src={Diabetis} alt="" />
                     <h5>Diabetes</h5>
                 </div>
                 <div className='col-6 col-md-2'>
-                    <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_04.png" alt="" />
+                    <img className='img-fluid' src={Blood} alt="" />
                     <h5>Blood Circulation</h5>
                 </div>
                 <div className='col-6 col-md-2'>
-                    <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_05.png" alt="" />
+                    <img className='img-fluid' src={Backpain} alt="" />
                     <h5>Back Pain</h5>
                 </div>
                 <div className='col-6 col-md-2'>
-                    <img className='img-fluid' src="https://fitintimedubai.com/assets/imgmin/fit_06.png" alt="" />
+                    <img className='img-fluid' src={Osteo} alt="" />
                     <h5>Osteoporosis</h5>
                 </div>
             </div>
